@@ -6,18 +6,5 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
-      - name: Setup pyhton 
-        uses: actions/setup-python@v4
-        with: 
-          python-version: '3.12.6'
-      - name : Install Dependencies
-        run: 
-            python -m pip install --upgrade pip
-            pip install pyyaml
-      - name : Push Repo
-        run:
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add . 
-          git commit -m "Modified feed"
-          git push 
+      - name: Run Feed Generator
+        uses: Venomanas/podcast-test@main
